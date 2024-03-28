@@ -1,10 +1,16 @@
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4,};
-        int min_length = 3;
-        int result = checkArrayLength(arr, min_length, 3);
-        System.out.println(result);
+//        int[] arr = {1, 2, 3, 4,};
+//        int min_length = 4;
+//        int result = checkArrayLength(arr, min_length, 30);
+//        System.out.println(result);
+//        exceptions(result);
+//        int[][] Arr = {{0, 1, 0, 1}, {0, 0, 1, 1}, {1, 1, 0, 0}, {1, 1, 1, 1}};
+//        System.out.println(SummArr(Arr));
+        Integer[] array = {null, -34, 1, 2, null, 45, 57};
+        checkArray(array);
+
     }
 
     // Задание №1
@@ -20,7 +26,7 @@ public class Main {
     // То есть, этот метод запросит искомое число у пользователя,
     // вызовет первый, обработает возвращенное значение и покажет читаемый результат пользователю.
     // Например, если вернулся -2, пользователю выведется сообщение: “Искомый элемент не найден”.
-    public  static int checkArrayLength(int [] arr, int min_length, int el) {
+    public static int checkArrayLength(int[] arr, int min_length, int el) {
 
         if (arr == null) { // Проверка на пустоту
             return -3;
@@ -29,10 +35,73 @@ public class Main {
             return -1;
         }
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == el){
+            if (arr[i] == el) {
                 return i;
             }
 
-        }return -2;
+        }
+        return -2;
     }
+
+    public static void exceptions(int val) {
+        if (val == -3) {
+            System.out.println("Массив пуст");
+        }
+        else if (val == -2) {
+                System.out.println("Искомый элемент не найден");
+        }
+        else if (val == -1) {
+            System.out.println("Длинна массива меньше минимального значения");
+                }
+        else System.out.println("Индекс злемента:" + val);
+
+
+    }
+
+    /**
+     * Задание №2
+     * Реализуйте метод, принимающий в качестве аргумента целочисленный двумерный массив.
+     * Необходимо посчитать и вернуть сумму элементов этого массива.
+     * При этом накладываем на метод 2 ограничения:
+     * метод может работать только с квадратными массивами (кол-во строк = кол-ву столбцов),
+     * и в каждой ячейке может лежать только значение 0 или 1.
+     * Если нарушается одно из условий, метод должен бросить RuntimeException с сообщением об ошибке.
+     */
+    public static int SummArr(int[][] Arr) {
+        if (Arr == null) {
+            throw new RuntimeException("Массив пуст");
+        }
+        if (Arr.length != Arr[0].length) throw new RuntimeException("Массив не квадратный");
+        int S = 0;
+        for (int i = 0; i < Arr.length; i++) {
+            for (int j = 0; j < Arr[0].length; j++) {
+                if (Arr[i][j] != 1 && Arr[i][j] != 0) return -3;
+                S = S + Arr[i][j];
+            }
+        }
+        return S;
+    }
+    /**
+     * Задание №4
+     * Реализуйте метод checkArray(Integer[] arr),
+     * принимающий в качестве аргумента целочисленный одномерный массив.
+     * Метод должен пройтись по каждому элементу и проверить что он не равен null.
+     * А теперь реализуйте следующую логику:
+     * 1. Если в какой-то ячейке встретился null, то необходимо “оповестить” об этом пользователя
+     * 2. Если null’ы встретились в нескольких ячейках, то идеально было бы все их “подсветить”
+     */
+    public static void checkArray(Integer[] arr){
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == null)
+                System.out.println("Встретилось значение null на индексе " + i);
+        }
+    }
+
+    /**
+     * Задание №6
+     * Дан класс https://github.com/sabinaIsm/test/blob/d2ebf811b85139783b1a0dcbe3714dbb28deee82/Ra ndomExceptionsClass.java
+     * Запустите код, с помощью анализа стектрейса найдите и по возможности исправьте ошибки,
+     * добейтесь корректного выполнения программы.
+     */
+
 }
