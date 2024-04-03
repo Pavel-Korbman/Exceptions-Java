@@ -1,4 +1,8 @@
 import java.io.File;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -63,24 +67,38 @@ public class Main {
         System.out.println(number);  // Обращение к несуществующему объекту
 //        10
 
+        try {
+            FileReader test = new FileReader("test.txt");
+        } catch (FileNotFoundException e) {
+            // Джава требует обработки исключений для FileReader на случай если файл test.txt не будет найден
+            throw new RuntimeException(e);
+        }
 
+       /*  МЕТОД try-catch:
+        ● finally исполняется всегда и не зависит от наличия или отсутствия исключений
+        Туда помещаем код, который в любом случае должен быть исполнен -
+        например закрытие файла после файлридера
+         */
 
+        FileReader test1 = null;
+        try {
+            test1 = new FileReader("test1.txt");
+            test1.read();
+        } catch (RuntimeException | IOException e) {
+            // Если хотим обработать исключения не имеющие одного родителя -
+            // можно перечислять типы исключений в одном блоке catch.
+            System.out.println("Произошло исключение:"+ e.getClass().getSimpleName()); // Выведет класс и название исключения
+        } finally {  // Блок кода finally исполняется всегда и не зависит от наличия исключений
+            if (test1 != null ) {
+                try {
+                    test1.close();
+                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+                    System.out.println("Возникло исключение при закрытии файла");
+                }
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
     }
