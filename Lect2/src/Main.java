@@ -63,16 +63,6 @@ public class Main {
         System.out.println(number);  // Обращение к несуществующему объекту
 //        10
 
-        String input = "3.14";
-        Float num = 0f;
-
-        try {
-            num = Float.parseFloat(input);
-            System.out.println(num);
-        } catch (NumberFormatException e){
-            System.out.println("Your input is not a float number. Please, try again.");
-        }
-        System.out.println(num);
 
 
 
