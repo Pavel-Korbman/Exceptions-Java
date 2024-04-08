@@ -3,6 +3,9 @@
  */
 
 import java.io.*;
+import java.lang.reflect.Type;
+import java.math.BigInteger;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -40,20 +43,37 @@ public class Main {
          *Чтение файла с try-with-resources
          */
 
-        try (BufferedReader test = new BufferedReader(new FileReader("file.txt"))) {
-//            Ресурс в скобках будет закрыт по окончании блока try
-            String str;
-            while ((str = test.readLine()) != null) {
-                System.out.println(str);
-            }
-            // Полезная работа, связанная с чтением файла.
-        } catch (RuntimeException | IOException e) {
-            System.out.println("catch exception: " + e.getClass().getSimpleName());
-        } finally {
-//            Не нужно закрывать открытые ресурсы
-            System.out.println("finally start");
-            System.out.println("finally finished");
-        }
+//        try (BufferedReader test = new BufferedReader(new FileReader("file.txt"))) {
+////            Ресурс в скобках будет закрыт по окончании блока try
+//            String str;
+//            while ((str = test.readLine()) != null) {
+//                System.out.println(str);
+//            }
+//            // Полезная работа, связанная с чтением файла.
+//        } catch (RuntimeException | IOException e) {
+//            System.out.println("catch exception: " + e.getClass().getSimpleName());
+//        } finally {
+////            Не нужно закрывать открытые ресурсы
+//            System.out.println("finally start");
+//            System.out.println("finally finished");
+//        }
+//        String data = "9779225100";
+//        try {
+//            int tel = Integer.parseInt(data);
+//            System.out.println(tel);
+//        } catch (NumberFormatException e) {
+//            System.out.println("Телефон должен состоять только из цифр");
+//        }
+//        String data = "9779225100";
+//        int tel;
+//        tel = Integer.parseInt(data);
+//        System.out.println(tel);
+
+        String tel = "89779225100r";
+        BigInteger num = new BigInteger(tel);
+//        int res = (int) Double.parseDouble(tel);
+        System.out.println(num);
+
 
 
     }
