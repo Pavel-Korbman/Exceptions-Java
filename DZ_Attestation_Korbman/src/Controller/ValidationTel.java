@@ -1,4 +1,4 @@
-
+package Controller;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.zip.DataFormatException;
@@ -10,7 +10,7 @@ public class ValidationTel {
                 BigInteger tel = new BigInteger(data.get(4));
                 System.out.println(tel);
             } catch (NumberFormatException e) {
-                System.out.println(" Телефон должен состоять только из цифр");
+                throw new NumberFormatException(" Телефон должен состоять только из цифр");
             }
         } else throw new DataFormatException("Номер телефона должен состоять из 10 цифр !");
     }
