@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.zip.DataFormatException;
 
 public class Controller {
-
     public static void validationData(List<String> data) throws DataFormatException {
 
         if (data.size() < 6) {
