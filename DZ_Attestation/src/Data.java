@@ -2,7 +2,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-
 public class Data {
     public static void dataSave(List<String> data) {
         String fileName = data.getFirst() + ".txt";

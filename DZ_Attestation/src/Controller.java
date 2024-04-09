@@ -5,8 +5,9 @@ import java.util.zip.DataFormatException;
 public class Controller {
     public static void validationData(List<String> data) throws DataFormatException {
 
-        if (data.size() < 6) throw new DataFormatException("Вы ввели меньше данных, чем требуется !");
-        if (data.size() > 6) throw new DataFormatException("Вы ввели больше данных, чем требуется !");
+//        if (data.size() < 6) throw new DataFormatException("Вы ввели меньше данных, чем требуется !");
+//        if (data.size() > 6) throw new DataFormatException("Вы ввели больше данных, чем требуется !");
+
 
         System.out.println("Ваши данные:");
         if (data.getFirst().length() >= 2) System.out.println(data.getFirst());
