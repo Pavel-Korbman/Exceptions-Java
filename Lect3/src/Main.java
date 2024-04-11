@@ -57,22 +57,6 @@ public class Main {
 //            System.out.println("finally start");
 //            System.out.println("finally finished");
 //        }
-//        String data = "9779225100";
-//        try {
-//            int tel = Integer.parseInt(data);
-//            System.out.println(tel);
-//        } catch (NumberFormatException e) {
-//            System.out.println("Телефон должен состоять только из цифр");
-//        }
-//        String data = "9779225100";
-//        int tel;
-//        tel = Integer.parseInt(data);
-//        System.out.println(tel);
-
-        String tel = "89779225100r";
-        BigInteger num = new BigInteger(tel);
-//        int res = (int) Double.parseDouble(tel);
-        System.out.println(num);
 
 
 
